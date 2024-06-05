@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>Board</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li>
+                        <a href="#"><i class="fas fa-wallet"></i> Expenses <i class="fas fa-chevron-down"></i></a>
+                        <ul class="submenu">
+                            <li><a href="#">Summary</a></li>
+                            <li><a href="#">Transactions</a></li>
+                            <li><a href="#">Monthly</a></li>
+                            <li><a href="#">Categories</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fas fa-chart-line"></i> Spending <i class="fas fa-chevron-down"></i></a>
+                        <ul class="submenu">
+                            <li><a href="#">Overview</a></li>
+                            <li><a href="#">Budgeting</a></li>
+                            <li><a href="#">Reports</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="#"><i class="fas fa-info-circle"></i> Support & FAQs</a>
+            </div>
+        </aside>
+        <main class="main-content">
+            <header class="main-header">
+                <div>
+                    <input type="text" placeholder="Search expenses">
+                    <button class="search-button">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+                
+                <div class="sub-header">
+                    <button class="notification">
+                        <i class="fa fa-bell"></i>
+                        <span class="notification-count">3</span>
+                    </button>
+                    <div class="user-profile">
+                        <img src="user.jpg" alt="User Profile">
+                    </div>
+                </div>
+            </header>
+            <div class="content">
+                <div class="first-div">
+                    <div class="analysis">
+                        <div class="analysis-item">
+                            <h3>Total spent</h3>
+                            <p>$12,345</p>
+                            <button>View</button>
+                        </div>
+                        <div class="analysis-item">
+                            <h3>Monthly budget</h3>
+                            <p>$5,678</p>
+                            <button>Filter</button>
+                        </div>
+                        <div class="analysis-item">
+                            <h3>Remaining balance</h3>
+                            <p>$6,789</p>
+                            <button>Export</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="second-div">
+                    <div class="expense-trends">
+                        <h2>Expense trends</h2>
+                        <button class="date-range-btn">Select date range</button>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Category</th>
+                                    <th>Amount</th>
+                                    <th>Trends</th>
+                                    <th>Categories</th>
+                                    <th>Expenses</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Last week</td>
+                                    <td><button class="table-btn">Filter</button></td>
+                                    <td><button class="table-btn">View</button></td>
+                                    <td><button class="table-btn">View</button></td>
+                                    <td><button class="table-btn">View</button></td>
+                                </tr>
+                                <tr>
+                                    <td>This week</td>
+                                    <td><button class="table-btn">Filter</button></td>
+                                    <td><button class="table-btn">View</button></td>
+                                    <td><button class="table-btn">Analyze</button></td>
+                                    <td><button class="table-btn">Export</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="expense-history">
+                        <h2>Expense history</h2>
+                        <div class="chart">
+                            <div class="bar" style="height: 20%;"><span>Sun</span></div>
+                            <div class="bar" style="height: 40%;"><span>Mon</span></div>
+                            <div class="bar" style="height: 60%;"><span>Tue</span></div>
+                            <div class="bar" style="height: 10%;"><span>Wed</span></div>
+                            <div class="bar" style="height: 15%;"><span>Thu</span></div>
+                            <div class="bar" style="height: 80%;"><span>Fri</span></div>
+                            <div class="bar" style="height: 50%;"><span>Sat</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="third-div">
+                    <div class="expense-details">
+                        <h3>Expense details</h3>
+                        <table class="transactions-table">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Category</th>
+                                    <th>Description</th>
+                                    <th>Price</th>
+                                    <th>Quantity</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>13 Mar 2022</td>
+                                    <td><button class="tag-btn">Tag</button></td>
+                                    <td>
+                                        <p>Product - 3600</p>
+                                        <p>Transaction ID: 1943083</p>
+                                    </td>
+                                    <td>Total: 1382.43</td>
+                                    <td>Profit: +744.78</td>
+                                </tr>
+                                <!-- Repeat the tr for more rows as needed -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

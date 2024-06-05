@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f5f5f5;
+    position: relative;
+    overflow: hidden;
+}
+
+.container {
+    background-color: white;
+    height: 660px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.login-box {
+    background: #fff;
+    padding: 40px 60px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    width: 40%;
+    margin-left: 31%;
+    /* width: 470px; */
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.textbox {
+    margin-bottom: 20px;
+}
+
+.textbox input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.btn {
+    width: 100%;
+    background-color: black;
+    color: white;
+    padding: 15px 20px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn:hover {
+    background-color: #333;
+}
+
+.or-separator {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.or-separator hr {
+    flex-grow: 1;
+    border: none;
+    border-top: 1px solid #ccc;
+}
+
+.or-separator span {
+    margin: 0 10px;
+    color: #aaa;
+}
+
+.top-left-pic,
+.bottom-right-pic {
+    position: absolute;
+    z-index: 1;
+}
+
+.top-left-pic {
+    top: 0;
+    left: 0;
+    transform: translate(-25%, -50%);
+}
+
+.top-left-pic img {
+    max-width: 800px;
+    opacity: 0.8;
+}
+
+.bottom-right-pic {
+    background-color: transparent;
+    bottom: 56px;
+    /* left: 350px; */
+    right: 182px;
+    /* transform: translate(50%, 50%); */
+}
+
+.bottom-right-pic img {
+    background-color: transparent;
+    max-width: 220px;
+    opacity: 0.8;
+}

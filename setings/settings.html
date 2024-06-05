@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>Board</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li>
+                        <a href="#"><i class="fas fa-wallet"></i> Expenses <i class="fas fa-chevron-down"></i></a>
+                        <ul class="submenu">
+                            <li><a href="#">Summary</a></li>
+                            <li><a href="#">Transactions</a></li>
+                            <li><a href="#">Monthly</a></li>
+                            <li><a href="#">Categories</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fas fa-chart-line"></i> Spending <i class="fas fa-chevron-down"></i></a>
+                        <ul class="submenu">
+                            <li><a href="#">Overview</a></li>
+                            <li><a href="#">Budgeting</a></li>
+                            <li><a href="#">Reports</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="#"><i class="fas fa-info-circle"></i> Support & FAQs</a>
+            </div>
+        </aside>
+        <main class="main-content">
+            <header class="main-header">
+                <div>
+                    <input type="text" placeholder="Search expenses">
+                    <button class="search-button">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+                
+                <div class="sub-header">
+                    <button class="notification">
+                        <i class="fa fa-bell"></i>
+                        <span class="notification-count">3</span>
+                    </button>
+                    <div class="user-profile">
+                        <img src="user.jpg" alt="User Profile">
+                    </div>
+                </div>
+            </header>
+            <div class="content">
+                <div class="profile-information">
+                    <h2>Profile Information</h2>
+                    <div class="profile-details">
+                        <img src="user.jpg" alt="User Profile">
+                        <div class="profile-text">
+                            <h3>John Doe</h3>
+                            <p>john.doe@example.com</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="reset-password">
+                    <h2>Reset Password</h2>
+                    <form>
+                        <input type="password" placeholder="Current Password">
+                        <input type="password" placeholder="New Password">
+                        <input type="password" placeholder="Confirm New Password">
+                        <button type="submit">Reset Password</button>
+                    </form>
+                </div>
+                <div class="account-deactivation">
+                    <h2>Account Deactivation</h2>
+                    <p>Warning: Deactivating your account will result in the loss of all your data.</p>
+                    <button class="deactivate-btn">Deactivate Account</button>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

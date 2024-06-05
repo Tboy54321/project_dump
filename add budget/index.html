@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>Board</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li>
+                        <a href="#"><i class="fas fa-wallet"></i> Expenses <i class="fas fa-chevron-down"></i></a>
+                        <ul class="submenu">
+                            <li><a href="#">Summary</a></li>
+                            <li><a href="#">Transactions</a></li>
+                            <li><a href="#">Monthly</a></li>
+                            <li><a href="#">Categories</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fas fa-chart-line"></i> Spending <i class="fas fa-chevron-down"></i></a>
+                        <ul class="submenu">
+                            <li><a href="#">Overview</a></li>
+                            <li><a href="#">Budgeting</a></li>
+                            <li><a href="#">Reports</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="#"><i class="fas fa-info-circle"></i> Support & FAQs</a>
+            </div>
+        </aside>
+        <main class="main-content">
+            <header class="main-header">
+                <div>
+                    <input type="text" placeholder="Search expenses">
+                    <button class="search-button">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+                
+                <div class="sub-header">
+                    <button class="notification">
+                        <i class="fa fa-bell"></i>
+                        <span class="notification-count">3</span>
+                    </button>
+                    <div class="user-profile">
+                        <img src="user.jpg" alt="User Profile">
+                    </div>
+                </div>
+            </header>
+            <div class="content">
+                
+                
+                <div class="budget-details">
+                    <div class="header">
+                        <h2>Budget Details</h2>
+                        <button class="save-btn">Save</button>
+                    </div>
+                    <p class="created-at">Created at 01/09/2023</p>
+                    <form class="budget-form">
+                        <label for="budget-name">Budget Name</label>
+                        <input type="text" id="budget-name" placeholder="Budget name">
+                        
+                        <label for="budget-category">Category</label>
+                        <select id="budget-category">
+                            <option value="" selected>Select method</option>
+                            <option value="credit">Credit Card</option>
+                            <option value="debit">Debit Card</option>
+                            <option value="cash">Cash</option>
+                            <option value="bank">Bank Transfer</option>
+                        </select>
+                        <!-- <input type="text" id="budget-assignee" placeholder="assignee@broadtail.co"> -->
+                        
+                        <label for="budget-amount">Amount</label>
+                        <input type="text" id="budget-amount" placeholder="Budget Amount">
+                        
+                        <label for="budget-amount">Start Date</label>
+                        <input type="date" id="start-date" placeholder="Start Date">
+
+                        <label for="budget-amount">End Date</label>
+                        <input type="date" id="end-date" placeholder="End date">
+
+                        <!-- <label for="budget-notes">Notes</label>
+                        <textarea id="budget-notes" placeholder="Add any additional notes here"></textarea> -->
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>Board</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li>
+                        <a href="#"><i class="fas fa-wallet"></i> Expenses <i class="fas fa-chevron-down"></i></a>
+                        <ul class="submenu">
+                            <li><a href="#">Summary</a></li>
+                            <li><a href="#">Transactions</a></li>
+                            <li><a href="#">Monthly</a></li>
+                            <li><a href="#">Categories</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fas fa-chart-line"></i> Spending <i class="fas fa-chevron-down"></i></a>
+                        <ul class="submenu">
+                            <li><a href="#">Overview</a></li>
+                            <li><a href="#">Budgeting</a></li>
+                            <li><a href="#">Reports</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="#"><i class="fas fa-info-circle"></i> Support & FAQs</a>
+            </div>
+        </aside>
+        <main class="main-content">
+            <header class="main-header">
+                <div>
+                    <input type="text" placeholder="Search expenses">
+                    <button class="search-button">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+                
+                <div class="sub-header">
+                    <button class="notification">
+                        <i class="fa fa-bell"></i>
+                        <span class="notification-count">3</span>
+                    </button>
+                    <div class="user-profile">
+                        <img src="user.jpg" alt="User Profile">
+                    </div>
+                </div>
+            </header>
+            <div class="content">
+                <div class="expense-overview">
+                    <header class="expense-header">
+                        <h2>Expense Overview</h2>
+                        <button class="add-expense-btn">Add Expense</button>
+                    </header>
+                    <table class="expense-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Category</th>
+                                <th>Description</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>09/11/2022<br>Food Catering</td>
+                                <td>McFood</td>
+                                <td>€250.00</td>
+                                <td>November 2022</td>
+                                <td>Not Submitted</td>
+                            </tr>
+                            <tr>
+                                <td>10/11/2022<br>Office Supplies</td>
+                                <td>Officio</td>
+                                <td>€150.00</td>
+                                <td>November 2022</td>
+                                <td>Not Submitted</td>
+                            </tr>
+                            <tr>
+                                <td>11/11/2022<br>Business Lunch</td>
+                                <td>Restaurant</td>
+                                <td>€75.50</td>
+                                <td>November 2022</td>
+                                <td>Not Submitted</td>
+                            </tr>
+                            <tr>
+                                <td>11/11/2022<br>Travel Expenses</td>
+                                <td>Airlines</td>
+                                <td>€450.25</td>
+                                <td>November 2022</td>
+                                <td>Submitted</td>
+                            </tr>
+                            <tr>
+                                <td>12/11/2022<br>Client Dinner</td>
+                                <td>Bistro</td>
+                                <td>€120.00</td>
+                                <td>November 2022</td>
+                                <td>Not Submitted</td>
+                            </tr>
+                            <tr>
+                                <td>16/11/2022<br>Accommodation</td>
+                                <td>Hotel ***</td>
+                                <td>€275.75</td>
+                                <td>November 2022</td>
+                                <td>Submitted</td>
+                            </tr>
+                            <tr>
+                                <td>20/11/2022<br>News Subscription</td>
+                                <td>NewsTimes</td>
+                                <td>€30.00</td>
+                                <td>November 2022</td>
+                                <td>Not Submitted</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
