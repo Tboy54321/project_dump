@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="view_budget.css">
+    <!-- Include Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>Board</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#" class="active"><i class="fas fa-home"></i>Dashboard</a></li>
+                    <li>
+                        <a href="#"><i class="fas fa-wallet"></i>Expense<i class="fas fa-chevron-down"></i></a>
+                        <ul class="submenu">
+                            <li><a href="#">Add Expense</a></li>
+                            <li><a href="#">Expense Overview</a></li>
+                            <li><a href="#">Expense List</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fas fa-chart-line"></i>Budget<i class="fas fa-chevron-down"></i></a>
+                        <ul class="submenu">
+                            <li><a href="#">Add Budget</a></li>
+                            <li><a href="#">Budget Overview</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#"><i class="fas fa-chart-line"></i>Settings</a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="#"><i class="fas fa-info-circle"></i>Logout</a>
+            </div>
+        </aside>
+        <main class="main-content">
+            <header class="main-header">
+                <div>
+                    <input type="text" placeholder="Search expenses">
+                    <button class="search-button">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+                
+                <div class="sub-header">
+                    <button class="notification">
+                        <i class="fa fa-bell"></i>
+                        <span class="notification-count">3</span>
+                    </button>
+                    <div class="user-profile">
+                        <img src="user.jpg" alt="User Profile">
+                    </div>
+                </div>
+            </header>
+            <div class="content">
+                <h1>BUDGET SUMMARY</h1>
+                <div class="top-div">
+                    <div class="financial-overview">
+                        <h2>Financial Overview</h2>
+                        <div class="overview-cards">
+                            <div class="card">
+                                <div class="card-icon"><i class="fas fa-camera"></i></div>
+                                <div class="card-info">
+                                    <p>Total Expenses</p>
+                                    <h3>$489k</h3>
+                                    <button class="increase">Increase</button>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-icon"><i class="fas fa-shopping-cart"></i></div>
+                                <div class="card-info">
+                                    <p>Recent Purchases</p>
+                                    <h3>$126k</h3>
+                                    <button class="increase">Increase</button>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-icon"><i class="fas fa-credit-card"></i></div>
+                                <div class="card-info">
+                                    <p>Available Balance</p>
+                                    <h3>$349k</h3>
+                                    <button class="decrease">Decrease</button>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-icon"><i class="fas fa-user"></i></div>
+                                <div class="card-info">
+                                    <p>Active Users</p>
+                                    <h3>79k</h3>
+                                    <button class="increase">Increase</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="search-period">
+                            <button>Search this week <i class="fas fa-chevron-down"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom-div">
+                    <h2>Recent Transactions</h2>
+                    <div class="transactions-toolbar">
+                        <input type="text" placeholder="Search this week's">
+                        <button class="export-btn">Export as CSV</button>
+                    </div>
+                    <table class="transactions-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Category</th>
+                                <th>Amount</th>
+                                <th>Start Date</th>
+                                <th>End Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>13 Mar 2022</td>
+                                <td><button class="tag-btn">Tag</button></td>
+                                <td>
+                                    <p>Product - 3600</p>
+                                    <p>Transaction ID: 1943083</p>
+                                </td>
+                                <td>Total: 1382.43</td>
+                                <td>Profit: +744.78</td>
+                            </tr>
+                            <!-- Repeat the tr for more rows as needed -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

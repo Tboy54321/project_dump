@@ -16,28 +16,27 @@
             </div>
             <nav class="sidebar-nav">
                 <ul>
-                    <li><a href="#" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li><a href="#"><i class="fas fa-home"></i>Dashboard</a></li>
                     <li>
-                        <a href="#"><i class="fas fa-wallet"></i> Expenses <i class="fas fa-chevron-down"></i></a>
+                        <a href="#"><i class="fas fa-wallet"></i>Expense<i class="fas fa-chevron-down"></i></a>
                         <ul class="submenu">
-                            <li><a href="#">Summary</a></li>
-                            <li><a href="#">Transactions</a></li>
-                            <li><a href="#">Monthly</a></li>
-                            <li><a href="#">Categories</a></li>
+                            <li><a href="#">Add Expense</a></li>
+                            <li><a href="#">Expense Overview</a></li>
+                            <li><a href="#">Expense List</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="#"><i class="fas fa-chart-line"></i> Spending <i class="fas fa-chevron-down"></i></a>
+                        <a href="#"><i class="fas fa-chart-line"></i>Budget<i class="fas fa-chevron-down"></i></a>
                         <ul class="submenu">
-                            <li><a href="#">Overview</a></li>
-                            <li><a href="#">Budgeting</a></li>
-                            <li><a href="#">Reports</a></li>
+                            <li><a href="#">Add Budget</a></li>
+                            <li><a href="#">Budget Overview</a></li>
                         </ul>
                     </li>
+                    <li><a href="#"><i class="fas fa-chart-line"></i>Settings</a></li>
                 </ul>
             </nav>
             <div class="sidebar-footer">
-                <a href="#"><i class="fas fa-info-circle"></i> Support & FAQs</a>
+                <a href="#"><i class="fas fa-info-circle"></i>Logout</a>
             </div>
         </aside>
         <main class="main-content">
@@ -90,13 +89,27 @@
 
                         <label for="budget-amount">End Date</label>
                         <input type="date" id="end-date" placeholder="End date">
-
-                        <!-- <label for="budget-notes">Notes</label>
-                        <textarea id="budget-notes" placeholder="Add any additional notes here"></textarea> -->
                     </form>
                 </div>
             </div>
         </main>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const dropdownToggles = document.querySelectorAll('.sidebar-nav ul li > a');
+
+            dropdownToggles.forEach(toggle => {
+                toggle.addEventListener('click', function(e) {
+                    const parent = this.parentElement;
+                    const submenu = parent.querySelector('.submenu');
+
+                    if (submenu) {
+                        e.preventDefault();
+                        parent.classList.toggle('open');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>

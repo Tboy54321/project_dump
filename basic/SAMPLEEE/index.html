@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidebar Navigation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Basic reset */
+        body, ul, li, a {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+
+        /* Sidebar container */
+        .sidebar-nav {
+            width: 250px;
+            background-color: #343a40;
+            color: #fff;
+            position: fixed;
+            height: 100%;
+            padding-top: 20px;
+        }
+
+        .sidebar-nav ul {
+            padding: 0;
+        }
+
+        .sidebar-nav ul li {
+            position: relative;
+        }
+
+        .sidebar-nav ul li a {
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+            color: #adb5bd;
+            transition: color 0.3s ease, background-color 0.3s ease;
+        }
+
+        .sidebar-nav ul li a .fas {
+            margin-right: 10px;
+        }
+
+        .sidebar-nav ul li a:hover,
+        .sidebar-nav ul li a.active {
+            color: #fff;
+            background-color: #495057;
+        }
+
+        /* Dropdown submenu */
+        .sidebar-nav .submenu {
+            display: none;
+            background-color: #495057;
+        }
+
+        .sidebar-nav .submenu li a {
+            padding: 10px 40px;
+        }
+
+        /* Dropdown toggle icon */
+        .sidebar-nav ul li a .fa-chevron-down {
+            margin-left: auto;
+            transition: transform 0.3s ease;
+        }
+
+        /* Show submenu */
+        .sidebar-nav ul li.open > a .fa-chevron-down {
+            transform: rotate(180deg);
+        }
+
+        .sidebar-nav ul li.open > .submenu {
+            display: block;
+            animation: dropdown 0.3s ease;
+        }
+
+        /* Dropdown animation */
+        @keyframes dropdown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="sidebar-nav">
+        <ul>
+            <li><a href="#" class="active"><i class="fas fa-home"></i>Dashboard</a></li>
+            <li>
+                <a href="#"><i class="fas fa-wallet"></i>Expense<i class="fas fa-chevron-down"></i></a>
+                <ul class="submenu">
+                    <li><a href="#">Add Expense</a></li>
+                    <li><a href="#">Expense Overview</a></li>
+                    <li><a href="#">Expense List</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fas fa-chart-line"></i>Budget<i class="fas fa-chevron-down"></i></a>
+                <ul class="submenu">
+                    <li><a href="#">Add Budget</a></li>
+                    <li><a href="#">Budget Overview</a></li>
+                </ul>
+            </li>
+            <li><a href="#"><i class="fas fa-cog"></i>Settings</a></li>
+        </ul>
+    </nav>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const dropdownToggles = document.querySelectorAll('.sidebar-nav ul li > a');
+
+            dropdownToggles.forEach(toggle => {
+                toggle.addEventListener('click', function(e) {
+                    const parent = this.parentElement;
+                    const submenu = parent.querySelector('.submenu');
+
+                    if (submenu) {
+                        e.preventDefault();
+                        parent.classList.toggle('open');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

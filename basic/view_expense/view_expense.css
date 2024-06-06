@@ -45,27 +45,82 @@ body, html {
 
 .sidebar-nav {
     flex-grow: 1;
+    color: #343a40;
+    padding-top: 20px;
+    text-decoration: none;
 }
 
 .sidebar-nav ul {
     list-style: none;
-    padding: 10px 0;
+    padding: 0;
 }
 
 .sidebar-nav ul li {
-    padding: 10px 20px;
+    position: relative;
 }
 
 .sidebar-nav ul li a {
-    text-decoration: none;
-    color: #343a40;
     display: flex;
     align-items: center;
-    padding: 10px;
-    border-radius: 5px;
+    padding: 15px 20px;
+    color: #343a40;
+    text-decoration: none;
+    transition: color 0.3s ease, background-color 0.3s ease;
 }
 
-.sidebar-nav ul li a i {
+.sidebar-nav ul li a .fas {
+    margin-right: 10px;
+}
+
+.sidebar-nav ul li a:hover,
+.sidebar-nav ul li a.active {
+    color: #495057;
+    background-color: #f1f1f1;
+}
+
+.sidebar-nav .submenu {
+    display: none;
+    color: #495057;
+    background-color: #f1f1f1;
+}
+
+.sidebar-nav .submenu li a {
+    padding: 10px 40px;
+}
+
+.sidebar-nav ul li a .fa-chevron-down {
+    margin-left: auto;
+    transition: transform 0.3s ease;
+}
+
+
+.sidebar-nav ul li.open > a .fa-chevron-down {
+    transform: rotate(180deg);
+}
+
+.sidebar-nav ul li.open > .submenu {
+    display: block;
+    animation: dropdown 0.3s ease;
+}
+
+/* Dropdown animation */
+@keyframes dropdown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+
+
+
+/* .sidebar-nav ul li a i {
     margin-right: 10px;
 }
 
@@ -101,7 +156,7 @@ body, html {
 
 .sidebar-nav ul li:hover .submenu {
     display: block;
-}
+} */
 
 .sidebar-footer {
     /* padding: 20px; */
@@ -225,6 +280,8 @@ body, html {
 
 .content {
     padding: 20px;
+    padding-top: 0px;
+    padding-left: 0px;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -234,9 +291,9 @@ body, html {
 }
 
 .content h1 {
-    font-size: 2em;
+    font-size: 1.7em;
     color: #343a40;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
 }
 
 .top-div, .bottom-div {
