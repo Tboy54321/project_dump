@@ -1,0 +1,82 @@
+.content {
+    padding: 20px;
+}
+
+.budget-details {
+    background-color: #f1f1f1;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.budget-details .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.budget-details h2 {
+    margin-bottom: 10px;
+}
+
+.created-at {
+    margin-bottom: 55px;
+}
+
+.budget-details .save-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.budget-details .save-btn:hover {
+    background-color:  #0056b3;
+}
+
+.budget-form {
+    display: grid;
+    gap: 20px;
+}
+
+.budget-form label {
+    font-weight: bold;
+}
+
+.budget-form input[type="email"],
+.budget-form input[type="text"],
+.budget-form select,
+.budget-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s;
+}
+
+.budget-form input[type="email"]:focus,
+.budget-form input[type="text"]:focus,
+.budget-form select:focus,
+.budget-form textarea:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+.budget-form input[type="date"] {
+    width: 40%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s;
+}
+
+input[type="date"]:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+.budget-form textarea {
+    resize: vertical;
+}

@@ -1,0 +1,67 @@
+.expense-overview {
+    margin-top: -10px;
+}
+
+.expense-header {
+    display: grid;
+    grid-template-columns: 5fr 0.8fr;
+    gap: 10px;
+}
+
+.expense-header h2 {
+    font-size: 1.5em;
+    color: #343a40;
+}
+
+.add-expense-btn {
+    background-color: #17a2b8;
+    color: white;
+    border: none;
+    /* padding: 10px 20px; */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    width: 100%;
+}
+
+.add-expense-btn:hover {
+    background-color: #138496;
+}
+
+.expense-table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.expense-table th, .expense-table td {
+    text-align: left;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.expense-table th {
+    background-color: #f1f1f1;
+    color: #343a40;
+}
+
+.expense-table td {
+    background-color: #fff;
+    color: #343a40;
+}
+
+.status {
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.status.not-submitted {
+    background-color: #ffc107;
+    color: #fff;
+}
+
+.status.submitted {
+    background-color: #28a745;
+    color: #fff;
+}

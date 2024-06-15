@@ -1,0 +1,85 @@
+.profile-information, .reset-password, .account-deactivation {
+    margin: 0 -5px;
+    padding: 20px;
+    border: 1px solid #e9ecef;
+    border-radius: 10px;
+    background-color: #f1f1f1;
+}
+
+.profile-information {
+    margin-top: -16px;
+}
+
+.profile-information h2, .reset-password h2, .account-deactivation h2 {
+    margin-bottom: 15px;
+    color: #343a40;
+}
+
+.profile-details {
+    display: flex;
+    align-items: center;
+}
+
+.profile-details img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.profile-details .profile-text h3 {
+    font-size: 1.2em;
+    color: #343a40;
+}
+
+.profile-details .profile-text p {
+    font-size: 0.9em;
+    color: #6c757d;
+}
+
+.reset-password form {
+    display: flex;
+    flex-direction: column;
+}
+
+.reset-password form input {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 0.9em;
+    outline: none;
+}
+
+.reset-password form button {
+    margin-top: 20px;
+    width: 25%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+.reset-password form button:hover {
+    background-color: #0056b3;
+}
+
+.account-deactivation p {
+    color: #dc3545;
+    margin-bottom: 10px;
+}
+
+.deactivate-btn {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #dc3545;
+    color: white;
+    cursor: pointer;
+}
+
+.deactivate-btn:hover {
+    background-color: #c82333;
+}

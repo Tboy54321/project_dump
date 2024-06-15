@@ -1,0 +1,208 @@
+/* .content {
+    padding: 20px;
+} */
+
+.first-div, .second-div, .third-div {
+    margin-bottom: -40px;
+    margin-top: -25px;
+}
+
+/* Analysis section */
+.analysis {
+    background-color:  #f1f1f1;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-radius: 12px;
+}
+
+.analysis-item {
+    text-align: center;
+}
+
+.analysis-item h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.analysis-item p {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.analysis-item button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.analysis-item button:hover {
+    background-color: #0056b3;
+}
+
+
+
+
+
+/* Second div container styling */
+.second-div {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+/* Expense Trends Styling */
+.expense-trends {
+    background-color: #f1f1f1;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    flex: 2;
+    margin-right: 20px;
+}
+
+.expense-trends h2 {
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.date-range-btn {
+    float: right;
+    background-color: #fff;
+    color: #343a40;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.date-range-btn:hover {
+    background-color: #f1f1f1;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background-color: #f1f1f1;
+}
+
+th, td {
+    text-align: left;
+    padding: 10px;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.table-btn {
+    background-color: #fff;
+    color: #343a40;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.table-btn:hover {
+    background-color: #e9ecef;
+}
+
+/* Expense History Styling */
+.expense-history {
+    background-color: #f1f1f1;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    flex: 1;
+}
+
+.expense-history h2 {
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.chart {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 200px;
+}
+
+.bar {
+    background-color: blue;
+    width: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    border-radius: 5px;
+    margin: 0 5px;
+    position: relative;
+}
+
+.bar span {
+    position: absolute;
+    bottom: -20px;
+    font-size: 12px;
+    color: #343a40;
+}
+
+/* Expense details section */
+.expense-details {
+    background-color: #f1f1f1;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.expense-details h3 {
+    margin-bottom: 20px;
+}
+
+.transactions-table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+}
+
+.transactions-table th, .transactions-table td {
+    padding: 10px;
+    text-align: left;
+}
+
+.transactions-table th {
+    background-color: #f1f1f1;
+    color: #343a40;
+}
+
+.transactions-table tbody tr:nth-child(odd) {
+    background-color: #fff;
+}
+
+.transactions-table tbody tr:nth-child(even) {
+    background-color: #f1f1f1;
+}
+
+.tag-btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.tag-btn:hover {
+    background-color: #0056b3;
+}
