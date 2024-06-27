@@ -8,6 +8,7 @@ import Add_expense from './Add_expense/Add expense'
 import View_budget from './View_budget/View_budget'
 import View_expense from './View_expense/View_expense'
 import Expense_list from './Expense_list/Expense_list'
+import Notifications from './Notifications/Notifications';
 import reportWebVitals from './reportWebVitals';
 import {
   createBrowserRouter,
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
   {
     path: "/expense-list",
     element: <Expense_list />,
+  },
+  {
+    path: "/notifications",
+    element: <Notifications />,
   }
 ]);
 

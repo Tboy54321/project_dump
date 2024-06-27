@@ -51,8 +51,10 @@ const Sidebar = ({ children, showSearchBar = true, pageName }) => {
           )}
           <div className="sub-header">
             <button className="notification">
-              <FontAwesomeIcon icon={faBell} />
-              <span className="notification-count">3</span>
+              <Link to="/notifications">
+                <FontAwesomeIcon icon={faBell} />
+                <span className="notification-count">3</span>  
+              </Link>
             </button>
             <div className="user-profile">
               <img src="user.jpg" alt="User Profile" />

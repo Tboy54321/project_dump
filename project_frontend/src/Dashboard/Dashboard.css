@@ -3,7 +3,7 @@
 } */
 
 .first-div, .second-div, .third-div {
-    margin-bottom: -40px;
+    margin-bottom: 20px;
     margin-top: -25px;
 }
 
@@ -54,7 +54,7 @@
 .second-div {
     display: flex;
     justify-content: space-between;
-    margin-top: 20px;
+    /* margin-top: 20px; */
 }
 
 /* Expense Trends Styling */
