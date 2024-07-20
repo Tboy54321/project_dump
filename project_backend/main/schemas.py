@@ -42,6 +42,7 @@ class Post(BaseModel):
 class PostResponse(Post):
     id: int
     user_id: int
+    user: UserOut
     pass
 
     model_config = ConfigDict(from_attributes=True)

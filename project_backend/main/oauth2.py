@@ -23,7 +23,7 @@ def create_access_token(data: dict):
 def verify_access_token(token: str, credentials_exception, db: Session):
 
     try:
-
+        # HANDLING FOR LOGOUT FUNCTION (blacklisted_token)
         # blacklisted_token = db.query(models.TokenBlacklist).filter(models.TokenBlacklist.token).first()
         blacklisted_token = db.query(models.TokenBlacklist).filter(models.TokenBlacklist.token == token).first()
 

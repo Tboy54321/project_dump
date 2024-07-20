@@ -1,9 +1,9 @@
 from sqlalchemy import Boolean, Column, ForeignKey, Integer, String, DateTime, Float, JSON
 from sqlalchemy.orm import relationship
 from database import Base
-from sqlalchemy import Date
-from sqlalchemy.sql.sqltypes import TIMESTAMP
-from sqlalchemy.sql.expression import text
+# from sqlalchemy import Date
+# from sqlalchemy.sql.sqltypes import TIMESTAMP
+# from sqlalchemy.sql.expression import text
 from datetime import datetime
 
 class Posts(Base):
