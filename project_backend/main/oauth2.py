@@ -4,12 +4,13 @@ import schemas, database, models
 from fastapi import Depends, status, HTTPException
 from fastapi.security import OAuth2PasswordBearer
 from sqlalchemy.orm import Session
+from config import settings
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl='login')
 
-SECRET_KEY = "7et943-t0es[jew9r3-43[r821909y[llhruetwq8r430tkrehewue62093-oi4oyr289803254o3r89qiwpwtmnrekdy]]"
-ALGORITHM = "HS256"
-ACCESS_TOKEN_EXPIRE_MINUTES = 30
+SECRET_KEY = f"{settings.secret_key}"
+ALGORITHM = f"{settings.algorithm}"
+ACCESS_TOKEN_EXPIRE_MINUTES = settings.access_token_expire_minutes
 
 def create_access_token(data: dict):
     to_encode = data.copy()
@@ -23,7 +24,7 @@ def create_access_token(data: dict):
 def verify_access_token(token: str, credentials_exception, db: Session):
 
     try:
-        # HANDLING FOR LOGOUT FUNCTION (blacklisted_token)
+
         # blacklisted_token = db.query(models.TokenBlacklist).filter(models.TokenBlacklist.token).first()
         blacklisted_token = db.query(models.TokenBlacklist).filter(models.TokenBlacklist.token == token).first()
 

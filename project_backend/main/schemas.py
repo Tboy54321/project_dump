@@ -42,7 +42,6 @@ class Post(BaseModel):
 class PostResponse(Post):
     id: int
     user_id: int
-    user: UserOut
     pass
 
     model_config = ConfigDict(from_attributes=True)
@@ -71,13 +70,15 @@ class ExpenseCategory(BaseModel):
 
 class BudgetIn(BaseModel):
     name: str
+
     category: str
     amount: float
-    # time_period: str
+     # time_period: str
     start_date: datetime
     end_date: Optional[datetime] = None
     notification_preferences: str
     roll_over: bool
+
 
 class BudgetOut(BudgetIn):
     id: int
@@ -86,15 +87,17 @@ class BudgetOut(BudgetIn):
 
 # EXPENSE SCHEMAS
     
-class ExpenseIn(BaseModel):
+class ExpenseBase(BaseModel):
     name: str
     amount: float
     category: str
     payment_method: str
     # time_period: str
-    start_date: datetime
-    end_date: datetime
+    date: datetime
     description: str
+
+class ExpenseIn(ExpenseBase):
+    pass
 
 class ExpenseOut(ExpenseIn):
     id: int
@@ -105,3 +108,20 @@ class UserSettings(BaseModel):
     notification_preferences: str
 
     model_config = ConfigDict(from_attributes=True)
+
+
+class NotificationBase(BaseModel):
+    message: str
+    date: datetime
+    read: bool = False
+
+class NotificationCreate(NotificationBase):
+    user_id: int
+    budget_id: int
+
+class NotificationOut(NotificationBase):
+    id: int
+
+    model_config = ConfigDict(from_attributes=True)
+    # class Config:
+    #     orm_mode = True

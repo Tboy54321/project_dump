@@ -1,10 +1,18 @@
-from fastapi import status, HTTPException, Depends, APIRouter
+from fastapi import status, HTTPException, Depends, APIRouter, BackgroundTasks
 from typing import List
-import models, schemas, oauth2
+import models, schemas, oauth2, calculateExpensePercentage
 from sqlalchemy.orm import Session
 from database import get_db
 
 router = APIRouter()
+
+
+def check_budget_status(user_id: int, background_tasks: BackgroundTasks, db: Session = Depends(get_db), current_user: int = Depends(oauth2.get_current_user)):
+
+    background_tasks.add_task(calculateExpensePercentage.check_budget_status, user_id, db)
+    notifications = db.query(models.Notification).filter(models.Notification.user_id == current_user.id).all()
+    return notifications
+
 
 @router.get('/expenses', status_code=status.HTTP_200_OK, response_model=List[schemas.ExpenseOut])
 def get_expenses(db: Session = Depends(get_db), current_user: int = Depends(oauth2.get_current_user)):
@@ -30,7 +38,7 @@ def get_expense(id: int, db: Session = Depends(get_db), current_user: int = Depe
 
 
 @router.post("/createxpense/", status_code=status.HTTP_201_CREATED)
-def new_expense(expenses: schemas.ExpenseIn, db: Session = Depends(get_db), current_user: int = Depends(oauth2.get_current_user)):
+def new_expense(expenses: schemas.ExpenseIn, db: Session = Depends(get_db), current_user: int = Depends(oauth2.get_current_user), background_tasks = BackgroundTasks):
     # post_query = db.query(models.Posts).filter(models.Posts.id == id)
     print(current_user.email)
     new_expenses = models.Expense(user_id=current_user.id, **expenses.dict())

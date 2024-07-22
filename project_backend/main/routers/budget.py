@@ -1,6 +1,8 @@
-from fastapi import status, HTTPException, Depends, APIRouter
+from fastapi import status, HTTPException, Depends, APIRouter, BackgroundTasks
 from typing import List
-import models, schemas, oauth2
+import models, schemas, oauth2, calculateExpensePercentage
+from datetime import datetime
+
 from sqlalchemy.orm import Session
 from database import get_db
 
@@ -32,7 +34,20 @@ def get_budget(id: int, db: Session = Depends(get_db), current_user: int = Depen
 @router.post("/createbudget/", status_code=status.HTTP_201_CREATED)
 def new_budget(budgets: schemas.BudgetIn, db: Session = Depends(get_db), current_user: int = Depends(oauth2.get_current_user)):
     # post_query = db.query(models.Posts).filter(models.Posts.id == id)
-    print(current_user.email)
+    if budgets.end_date < budgets.start_date:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="End date cannot be earlier than start date")
+    
+    overlap_budget = db.query(models.Budget).filter(
+        models.Budget.user_id == current_user.id,
+        models.Budget.category == budgets.category,
+        models.Budget.start_date >= budgets.start_date,
+        models.Budget.end_date <= budgets.end_date
+        ).first()
+    
+
+    if overlap_budget:
+        raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail="Budget of this category already exists within this period")
+    
     new_budgets = models.Budget(user_id=current_user.id, **budgets.dict())
     db.add(new_budgets)
     db.commit()
@@ -75,3 +90,38 @@ def delete_budget(id: int, db: Session = Depends(get_db), current_user: int = De
     #     if not id:
     #         raise HTTPException(status_code=status.HTTP_417_EXPECTATION_FAILED, detail={f'post with {id} does not exist'})
     # return {"remaining posts" : my_posts}
+
+
+# @router.post("/check-budget-status/{user_id}")
+# def check_budget_status(user_id: int, background_tasks: BackgroundTasks, db: Session = Depends(get_db), current_user: int = Depends(oauth2.get_current_user)):
+#     if user_id != current_user.id:
+#         raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Not Authorized")
+
+#     background_tasks.add_task(crud.check_budget_status, user_id, db)
+#     return {"message": "Budget check scheduled"}
+
+# @router.get("/notifications", response_model=List[schemas.NotificationOut])
+# def get_notifications(db: Session = Depends(get_db), current_user: int = Depends(oauth2.get_current_user)):
+#     notifications = db.query(models.Notification).filter(models.Notification.user_id == current_user.id).all()
+#     return notifications
+
+@router.get("/notifications", response_model=List[schemas.NotificationOut])
+def get_notifications(background_tasks: BackgroundTasks, db: Session = Depends(get_db), current_user: int = Depends(oauth2.get_current_user)):
+    background_tasks.add_task(calculateExpensePercentage.check_budget_status, current_user.id, db)
+    notifications = db.query(models.Notification).filter(models.Notification.user_id == current_user.id).all()
+    return notifications
+
+@router.delete('/delete-notification/{id}')
+def delete_notifications(id: int, db: Session = Depends(get_db), current_user: int = Depends(oauth2.get_current_user)):
+    delete_query = db.query(models.Notification).filter(models.Notification.id == id)
+    deleted_notification = delete_query.first()
+
+    if not deleted_notification:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Notification with id: {id} was not found")
+    
+    if deleted_notification.user_id != current_user.id:
+        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Not Authorized")
+    
+    delete_query.delete(synchronize_session=False)
+    db.commit()
+    return (delete_query)

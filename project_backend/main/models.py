@@ -1,9 +1,9 @@
 from sqlalchemy import Boolean, Column, ForeignKey, Integer, String, DateTime, Float, JSON
 from sqlalchemy.orm import relationship
 from database import Base
-# from sqlalchemy import Date
-# from sqlalchemy.sql.sqltypes import TIMESTAMP
-# from sqlalchemy.sql.expression import text
+from sqlalchemy import Date
+from sqlalchemy.sql.sqltypes import TIMESTAMP
+from sqlalchemy.sql.expression import text
 from datetime import datetime
 
 class Posts(Base):
@@ -28,9 +28,9 @@ class Users(Base):
     is_active = Column(Boolean, nullable=False, default=True)
     expenses = relationship("Expense", back_populates="user")
     budgets = relationship("Budget", back_populates="user")
-    # notifications = relationship("Notification", back_populates="user")
     # reports = relationship("Report", back_populates="user")
     posts = relationship("Posts", back_populates="user")
+    notifications = relationship("Notification", back_populates="user")
 
 
 class Expense(Base):
@@ -42,8 +42,7 @@ class Expense(Base):
     amount = Column(Float)
     category = Column(String, index=True)
     payment_method = Column(String)
-    start_date = Column(DateTime, index=True)
-    end_date = Column(DateTime, index=True)
+    date = Column(DateTime, index=True)
     description = Column(String, nullable=True)
 
     user = relationship("Users", back_populates="expenses")
@@ -63,6 +62,7 @@ class Budget(Base):
     roll_over = Column(Boolean)
 
     user = relationship("Users", back_populates="budgets")
+    notifications = relationship("Notification", back_populates="budget")
     # notifications = relationship("Notification", back_populates="budget")
 
 
@@ -121,3 +121,15 @@ class TokenBlacklist(Base):
     id = Column(Integer, primary_key=True, index=True)
     token = Column(String, index=True, unique=True)
     blacklisted_on = Column(DateTime, default=datetime.utcnow)
+
+class Notification(Base):
+    __tablename__ = 'notifications'
+    id = Column(Integer, primary_key=True, index=True)
+    user_id = Column(Integer, ForeignKey('users.id'))
+    budget_id = Column(Integer, ForeignKey('budgets.id'))
+    message = Column(String)
+    date = Column(DateTime)
+    read = Column(Boolean, default=False)
+
+    user = relationship("Users", back_populates="notifications")
+    budget = relationship("Budget", back_populates="notifications")

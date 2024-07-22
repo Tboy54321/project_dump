@@ -32,7 +32,7 @@ def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
 def get_user(email: str, db: Session = Depends(get_db)):
     user = db.query(models.Users).filter(models.Users.email == email).first()
     if not user:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"User with {id} does not exist")
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"User with {email} does not exist")
     return user
 
 # ENDPOINT TO GETTING ALL USERS
