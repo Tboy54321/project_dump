@@ -3,3 +3,5 @@
 /main/myenv/
 
 pyproject.toml
+
+/main/.env

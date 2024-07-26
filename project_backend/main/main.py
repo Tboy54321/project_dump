@@ -12,9 +12,10 @@ import models
 from sqlalchemy.orm import Session
 from database import SessionLocal, engine, get_db
 from routers import posts, users, auth, expenses, expensecategories, budget
+from fastapi.middleware.cors import CORSMiddleware
 
 
-models.Base.metadata.create_all(bind=engine)
+# models.Base.metadata.create_all(bind=engine)
 
 # try:
 #     conn = psycopg2.connect(host='localhost', database='postgres', user='postgres', password='password', cursor_factory=RealDictCursor)
@@ -50,6 +51,18 @@ models.Base.metadata.create_all(bind=engine)
 
 
 app = FastAPI()
+
+origins = ["*"]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
 app.include_router(posts.router)
 app.include_router(users.router)
 app.include_router(auth.router)
