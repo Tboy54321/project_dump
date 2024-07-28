@@ -69,3 +69,7 @@ app.include_router(auth.router)
 app.include_router(expenses.router)
 app.include_router(expensecategories.router)
 app.include_router(budget.router)
+
+@app.get("/")
+def root():
+  return {"message": "Welcome to my expense tracker site"}
