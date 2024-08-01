@@ -4,4 +4,4 @@
 
 pyproject.toml
 
-/main/.env
+.env
