@@ -5,7 +5,8 @@ from database import get_db
 from sqlalchemy.exc import IntegrityError
 
 router = APIRouter(
-    prefix="/users"
+    prefix="/users",
+    tags=["Signing In new users"]
 )
 
 
